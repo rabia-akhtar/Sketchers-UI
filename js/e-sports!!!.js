@@ -2,6 +2,7 @@ $(document).foundation()
 //javascript, jQuery
 
 var owtemplate;
+var offset = 0;
 function readyFn() {
     var template = $('#mytemplate').html();
     owtemplate = $('#owtemplate').html();
@@ -21,7 +22,28 @@ function readyFn() {
         })
     });
 }
-
+function loadMore() {
+    var template = $('#mytemplate').html();
+    Mustache.parse(template);
+    //javascript, jQuery for random e-sports gifs
+    var xhr = $.get("http://api.giphy.com/v1/gifs/search?q=esports&api_key=AbeAQpZhmg7KZH3O1uZILCRVcsSXJqsu&limit=10&offset=" + offset);
+    var div = $('#results');
+    xhr.done(function(results) { 
+        console.log("success got data", results);
+        results.data.forEach(function (result) {
+            var view = {
+                title: result.title,
+                gif: result.embed_url
+              };
+              var rendered = Mustache.render(template, view);
+              div.append(rendered);
+        })
+    });
+    offset += 10
+    if(offset >= 30){
+    document.getElementById("load").style.display = "none";
+    }
+}
 function owsearch(){
     //javascript, jQuery for user directed overwatch gifs
     var search = document.forms["overwatchsearch"]["search"].value;
