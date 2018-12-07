@@ -19,10 +19,11 @@ function readyFn() {
         results.data.forEach(function (result) {
             var view = {
                 title: result.title,
-                gif: result.url
+                gif: result.embed_url
               };
               var rendered = Mustache.render(template, view);
               div.append(rendered);
+              console.log("view: ",view);
               console.log("view: ",rendered);
         })
     });

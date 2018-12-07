@@ -34,8 +34,17 @@
                 <p>What is E-sports?</p>
                 <div class="results" id="results">
                 <template id="mytemplate">
+                    <div class="card">
+                      <div class="container">
                         <h4><b>{{title}}</b></h4> 
-                           <img src="{{gif}}" alt="Gif">  
+                        <div class="grid-x grid-padding-x">
+                          <div class="small-6 small-8 cell">
+                              <iframe src={{gif}}></iframe>
+                         </div>
+                        
+                      </div>
+                    </div>
+                  </div>
                 </template>
                 </div>
                   <a class="button hollow expanded">Load More</a>
