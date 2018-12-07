@@ -1,4 +1,9 @@
 
+.header-container {
+    display: flex;
+    justify-content: center;
+  }
+
 .md-tabs {
     background-color: #1779BA;
   }
@@ -115,5 +120,6 @@
       outline: none;
     }
   }
+ 
   
   
