@@ -54,11 +54,25 @@
                   </div>
           </div>
           <div class="tabs-panel" id="panel2c">
-              <form id="overwatchsearch" method="post">
+              <form id="overwatchsearch">
               <input type="search" name="search" placeholder="Search.." class="animated-search-form">
-              <input type="submit" class="button" onclick="search()" value="Get Results">
+              <input type="button" onclick="return owsearch()" value="Get Results">
               </form>
-              <div id="display" style="height: 50px; width: 100%;"></div>
+              <div id="display">
+                  <template id="owtemplate">
+                      <div class="card">
+                        <div class="container">
+                          <h4><b>{{title}}</b></h4> 
+                          <div class="grid-x grid-padding-x">
+                            <div class="small-6 small-8 cell">
+                                <iframe src={{gif}}></iframe>
+                           </div>
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </template>
+              </div>
           </div>
         </div>
       </div>
