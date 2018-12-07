@@ -32,6 +32,12 @@
           <div class="tabs-panel is-active" id="panel1c">
               <div class="row column">
                 <p>What is E-sports?</p>
+                <div class="results" id="results">
+                <template id="mytemplate">
+                        <h4><b>{{title}}</b></h4> 
+                           <img src="{{gif}}" alt="Gif">  
+                </template>
+                </div>
                   <a class="button hollow expanded">Load More</a>
                   </div>
                   <div class ="reveal" id="reveal1" data-reveal>
@@ -68,6 +74,7 @@
 <script src="js/vendor/jquery.js"></script>
 <script src="js/vendor/what-input.js"></script>
 <script src="js/vendor/foundation.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.min.js"></script>
 <script src="js/e-sports!!!.js"></script>
 </body>
 </html>
