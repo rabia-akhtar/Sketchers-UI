@@ -54,8 +54,11 @@
                   </div>
           </div>
           <div class="tabs-panel" id="panel2c">
-            <p>Nunc ipsum massa, venenatis sed fringilla ut, elementum eu sapien. In eget dolor volutpat, fringilla metus et, dignissim lectus. Proin interdum sit amet odio ut varius. Nam id quam lacus. Aenean et tellus a sapien pulvinar sollicitudin. Mauris posuere
-              tellus urna, non fermentum urna scelerisque in. Nulla scelerisque est leo, non tempus purus laoreet in. Aliquam erat volutpat. Nunc nulla eros, blandit quis nunc vel, luctus fermentum nisi. Phasellus ullamcorper gravida facilisis.</p>
+              <form id="overwatchsearch" method="post">
+              <input type="search" name="search" placeholder="Search.." class="animated-search-form">
+              <input type="submit" class="button" onclick="search()" value="Get Results">
+              </form>
+              <div id="display" style="height: 50px; width: 100%;"></div>
           </div>
         </div>
       </div>

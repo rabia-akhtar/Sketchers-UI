@@ -23,8 +23,6 @@ function readyFn() {
               };
               var rendered = Mustache.render(template, view);
               div.append(rendered);
-              console.log("view: ",view);
-              console.log("view: ",rendered);
         })
     });
 
