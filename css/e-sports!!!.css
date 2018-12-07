@@ -109,7 +109,7 @@
       background-color: #fefefe;
       color: #0a0a0a;
     }
-    > .accordion > .accordion-item > .accordion-title:focus {
+    .md-tabs > .accordion > .accordion-item > .accordion-title:focus {
       background-color: #1779BA;
       color: #3ADB76;
       outline: none;
