@@ -2,20 +2,12 @@ $(document).foundation()
 //javascript, jQuery
 
 var owtemplate;
-
-$('#trigger-reveal').on('click', function(){
-    $.ajax('/my/modal/content').
-    done(function(content) {
-        $('reveal1').html(content).foundation('open');
-    });
-})
-
 function readyFn() {
     var template = $('#mytemplate').html();
     owtemplate = $('#owtemplate').html();
     Mustache.parse(template);
     //javascript, jQuery for random e-sports gifs
-    var xhr = $.get("http://api.giphy.com/v1/gifs/search?q=esports+RANDOM&api_key=AbeAQpZhmg7KZH3O1uZILCRVcsSXJqsu&limit=20");
+    var xhr = $.get("http://api.giphy.com/v1/gifs/search?q=esports&api_key=AbeAQpZhmg7KZH3O1uZILCRVcsSXJqsu&limit=10");
     var div = $('#results');
     xhr.done(function(results) { 
         console.log("success got data", results);
@@ -50,4 +42,20 @@ function owsearch(){
         })
     });
 }
+
+$('#top').click(function () {
+    $('body,html').animate({
+        scrollTop: 0
+    }, 600);
+    return false;
+});
+
+$(window).scroll(function () {
+    if ($(this).scrollTop() > 50) {
+        $('.totop a').fadeIn();
+    } else {
+        $('.totop a').fadeOut();
+    }
+});
+
 $( document ).ready( readyFn );
