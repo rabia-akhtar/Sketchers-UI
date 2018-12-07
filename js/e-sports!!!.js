@@ -1,6 +1,8 @@
 $(document).foundation()
 //javascript, jQuery
 
+var owtemplate;
+
 $('#trigger-reveal').on('click', function(){
     $.ajax('/my/modal/content').
     done(function(content) {
@@ -10,6 +12,7 @@ $('#trigger-reveal').on('click', function(){
 
 function readyFn() {
     var template = $('#mytemplate').html();
+    owtemplate = $('#owtemplate').html();
     Mustache.parse(template);
     //javascript, jQuery for random e-sports gifs
     var xhr = $.get("http://api.giphy.com/v1/gifs/search?q=esports+RANDOM&api_key=AbeAQpZhmg7KZH3O1uZILCRVcsSXJqsu&limit=20");
@@ -30,9 +33,8 @@ function readyFn() {
 function owsearch(){
     //javascript, jQuery for user directed overwatch gifs
     var search = document.forms["overwatchsearch"]["search"].value;
-    var display=$('#display')
-    var template = $('#owtemplate').html();
-    Mustache.parse(template);
+    var display=$('#display').empty();
+    Mustache.parse(owtemplate);
     var overwatchSearch = "http://api.giphy.com/v1/gifs/search?q=overwatch ";
     overwatchSearch +=search + "&api_key=AbeAQpZhmg7KZH3O1uZILCRVcsSXJqsu&limit=5";
     var overwatch = $.get(overwatchSearch);
@@ -43,7 +45,7 @@ function owsearch(){
                 title: result.title,
                 gif: result.embed_url
               };
-              var rendered = Mustache.render(template, view);
+              var rendered = Mustache.render(owtemplate, view);
               display.append(rendered);
         })
     });
