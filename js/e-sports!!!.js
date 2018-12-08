@@ -7,7 +7,9 @@ cache = [];
 function readyFn() {
     var template = $('#mytemplate').html();
     owtemplate = $('#owtemplate').html();
+    var rowtemplate = $('#owrandomtemplate').html();
     Mustache.parse(template);
+    Mustache.parse(rowtemplate);
     //javascript, jQuery for random e-sports gifs
     //var xhr = $.get("http://api.giphy.com/v1/gifs/search?q=esports&api_key=AbeAQpZhmg7KZH3O1uZILCRVcsSXJqsu&limit=50");
     var div = $('#results');
@@ -55,6 +57,35 @@ function readyFn() {
             });
         })
     });
+
+    var owdiv = $('#owrandom');
+    var ow = $.get("http://api.giphy.com/v1/gifs/random?tag=overwatch&api_key=AbeAQpZhmg7KZH3O1uZILCRVcsSXJqsu");
+    ow.done(function(result) { 
+        console.log("success got data", result);
+            var view = {
+                    title: result.data.title,
+                    gif: result.data.embed_url
+                };
+                var rendered = Mustache.render(rowtemplate, view);
+                owdiv.append(rendered);
+    });
+
+    var owhdiv = $('#owheros');
+    owhtemplate = $('#owhtemplate').html();
+    Mustache.parse(owhtemplate);
+    var owh = $.get("https://overwatch-api.net/api/v1/hero");
+    owh.done(function(results) { 
+        console.log("success got data", results);
+            results.data.forEach(function (result) {
+                var view = {
+                    name: result.name,
+                    value: result.id
+                };
+                var rendered = Mustache.render(owhtemplate, view);
+                owhdiv.append(rendered);
+            })
+    });
+
 }
 
 function loadMore() {

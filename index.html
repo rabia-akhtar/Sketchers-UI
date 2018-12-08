@@ -26,17 +26,17 @@
 
 
 <div class="row column">
-    <div class="md-tabs">  
-        <ul class="tabs" data-responsive-accordion-tabs="tabs small-accordion medium-tabs large-tabs" id="collapsing-tabs" data-allow-all-closed="true" data-multi-expand="true">
-          <li class="tabs-title is-active"><a href="#panel1c" aria-selected="true">E-sports</a></li>
-          <li class="tabs-title"><a href="#panel2c">Overwatch</a></li>
-          <div class="slide"></div>
-        </ul>
-      
-        <div class="tabs-content" data-tabs-content="collapsing-tabs">
-          <div class="tabs-panel is-active" id="panel1c">
-              <div class="row column">
-                <section class="block-list">
+  <div class="md-tabs">  
+    <ul class="tabs" data-responsive-accordion-tabs="tabs small-accordion medium-tabs large-tabs" id="collapsing-tabs" data-allow-all-closed="true" data-multi-expand="true">
+      <li class="tabs-title is-active"><a href="#panel1c" aria-selected="true">E-sports</a></li>
+      <li class="tabs-title"><a href="#panel2c">Overwatch</a></li>
+      <div class="slide"></div>
+    </ul>
+
+    <div class="tabs-content" data-tabs-content="collapsing-tabs">
+      <div class="tabs-panel is-active" id="panel1c">
+        <div class="row column">
+          <section class="block-list">
             <header>What is E-sports?</header>
             <ul>
               <li>
@@ -56,58 +56,84 @@
             </ul>
           </section>
 
-                <div class="masonry-css" id="results">
-                <template id="mytemplate">                   
-                        <div class="masonry-css-item" id ="masonry-css-item">
-                        <h4><b>{{title}}</b></h4> 
-                        <div class="iframe-holder"><iframe src={{gif}} width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div>
-                         </div>                       
-                </template>
-                </div>
-                <div class="row column">
-                    <button class="button hollow expanded" id="load" onclick="return loadMore()">Load More</button>
-                    </div>
+          <div class="masonry-css" id="results">
+            <template id="mytemplate">                   
+              <div class="masonry-css-item" id ="masonry-css-item">
+                <h4><b>{{title}}</b></h4> 
+                <div class="iframe-holder"><iframe src={{gif}} width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div>
+              </div>                       
+            </template>
           </div>
-          </div>
-          <div class="tabs-panel" id="panel2c">
-              <form id="overwatchsearch">
-                  <input type="search" name="search" placeholder="Search.." class="animated-search-form">
-                  <input type="button" onclick="return owsearch()" value="Get Results">
-                  </form>
-              <div id="display" class="masonry-css">
-                  <template id="owtemplate">
-                      <div class="masonry-css-item" id ="masonry-css-item">
-                          <h4><b>{{title}}</b></h4> 
-                          <div class="iframe-holder"><iframe src={{gif}} width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div>
-                           </div>      
-                  </template>
-              </div>
+          <div class="row column">
+            <button class="button hollow expanded" id="load" onclick="return loadMore()">Load More</button>
           </div>
         </div>
       </div>
-      
-      
-</div>
-    <div class="row column">
-      <hr>
+      <div class="tabs-panel" id="panel2c">
+        <div class="basic-card">
+          <div class="basic-card-image">
+            <div id="owrandom" >
+          <template id="owrandomtemplate">
+        
+              <h4><b>Overwatch Esports</b></h4> 
+              <div class="iframe-holder"><iframe src={{gif}} width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div>
+           
+          </template>
+        </div>
+          </div>
+          <div class="basic-card-content content callout secondary">
+          
+            <p>Overwatch is a team-based multiplayer first-person shooter video game developed and published by Blizzard Entertainment, which released on May 24, 2016 for PlayStation 4, Xbox One, and Windows.</p>
+          </div>
+          <form id="overwatchsearch">
+              <input type="search" name="search" placeholder="Search for more overwatch.." class="animated-search-form">
+
+              
+<div id="owheros">
+  <select name="heros">
+          <template id="owhtemplate">
+    <option value={{id}}>{{name}}</option>
+  </template>
+  </select>
+  </div>
+
+              <input type="button"  class="button" onclick="return owsearch()" value="Get Results">
+            </form>
+        </div>
+        <div id="display" class="masonry-css">
+          <template id="owtemplate">
+            <div class="masonry-css-item" id ="masonry-css-item">
+              <h4><b>{{title}}</b></h4> 
+              <div class="iframe-holder"><iframe src={{gif}} width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div>
+            </div>      
+          </template>
+        </div>
+      </div>
     </div>
-    <footer>
-      <div class="row">
-        <div class="medium-6 columns">
-          <ul class="menu">
-            <li><a href="#">Help</a></li>
-            <li><a href="#">Explore</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="totop">
-        <a href="#top" id="top">Back to top</a>
-      </div>
-    </footer>
-    <script src="js/vendor/jquery.js"></script>
-    <script src="js/vendor/what-input.js"></script>
-    <script src="js/vendor/foundation.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.min.js"></script>
-    <script src="js/e-sports!!!.js"></script>
-  </body>
-  </html>
+  </div>
+
+
+</div>
+<div class="row column">
+  <hr>
+</div>
+<footer>
+  <div class="row">
+    <div class="medium-6 columns">
+      <ul class="menu">
+        <li><a href="#">Help</a></li>
+        <li><a href="#">Explore</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="totop">
+    <a href="#top" id="top">Back to top</a>
+  </div>
+</footer>
+<script src="js/vendor/jquery.js"></script>
+<script src="js/vendor/what-input.js"></script>
+<script src="js/vendor/foundation.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.min.js"></script>
+<script src="js/e-sports!!!.js"></script>
+</body>
+</html>
