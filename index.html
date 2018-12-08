@@ -23,18 +23,20 @@
 <div class="row column">
   <hr>
 </div>
+
+
 <div class="row column">
-  <div class="md-tabs">  
-    <ul class="tabs" data-responsive-accordion-tabs="tabs small-accordion medium-tabs large-tabs" id="collapsing-tabs" data-allow-all-closed="true" data-multi-expand="true">
-      <li class="tabs-title is-active"><a href="#panel1c" aria-selected="true">E-sports</a></li>
-      <li class="tabs-title"><a href="#panel2c">Overwatch</a></li>
-      <div class="slide"></div>
-    </ul>
-    
-    <div class="tabs-content" data-tabs-content="collapsing-tabs">
-      <div class="tabs-panel is-active" id="panel1c">
-        <div class="row column">
-          <section class="block-list">
+    <div class="md-tabs">  
+        <ul class="tabs" data-responsive-accordion-tabs="tabs small-accordion medium-tabs large-tabs" id="collapsing-tabs" data-allow-all-closed="true" data-multi-expand="true">
+          <li class="tabs-title is-active"><a href="#panel1c" aria-selected="true">E-sports</a></li>
+          <li class="tabs-title"><a href="#panel2c">Overwatch</a></li>
+          <div class="slide"></div>
+        </ul>
+      
+        <div class="tabs-content" data-tabs-content="collapsing-tabs">
+          <div class="tabs-panel is-active" id="panel1c">
+              <div class="row column">
+                <section class="block-list">
             <header>What is E-sports?</header>
             <ul>
               <li>
@@ -50,48 +52,42 @@
               <li>
                 <a href="https://www.twitch.tv/">Twitch</a>
               </li>
+              <header>Esports Gifs</header>
             </ul>
           </section>
-      
-            <div class="row column">
-              <hr>
-            </div>
-            <div class="row column">
 
-
-              <div class="masonry-css" id="results">
+                <div class="masonry-css" id="results">
                 <template id="mytemplate">                   
-                  <div class="masonry-css-item" id ="masonry-css-item">
-                    
-                    <div class="iframe-holder"><iframe src={{gif}} width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div>
-                    <h3>{{title}}</h3>
-                  </div>                       
+                        <div class="masonry-css-item" id ="masonry-css-item">
+                        <h4><b>{{title}}</b></h4> 
+                        <div class="iframe-holder"><iframe src={{gif}} width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div>
+                         </div>                       
                 </template>
-              </div>
-              <div class="row column">
-                <button class="button hollow expanded" id="load" onclick="return loadMore()">Load More</button>
-              </div>
-            </div>
+                </div>
+                <div class="row column">
+                    <button class="button hollow expanded" id="load" onclick="return loadMore()">Load More</button>
+                    </div>
+          </div>
           </div>
           <div class="tabs-panel" id="panel2c">
-            <form id="overwatchsearch">
-              <input type="search" name="search" placeholder="Search.." class="animated-search-form">
-              <input type="button" onclick="return owsearch()" value="Get Results">
-            </form>
-            <div id="display" class="masonry-css">
-              <template id="owtemplate">
-                <div class="masonry-css-item" id ="masonry-css-item">
-                  <h4><b>{{title}}</b></h4> 
-                  <div class="iframe-holder"><iframe src={{gif}} width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div>
-                </div>      
-              </template>
-            </div>
+              <form id="overwatchsearch">
+                  <input type="search" name="search" placeholder="Search.." class="animated-search-form">
+                  <input type="button" onclick="return owsearch()" value="Get Results">
+                  </form>
+              <div id="display" class="masonry-css">
+                  <template id="owtemplate">
+                      <div class="masonry-css-item" id ="masonry-css-item">
+                          <h4><b>{{title}}</b></h4> 
+                          <div class="iframe-holder"><iframe src={{gif}} width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div>
+                           </div>      
+                  </template>
+              </div>
           </div>
         </div>
       </div>
       
       
-    </div>
+</div>
     <div class="row column">
       <hr>
     </div>

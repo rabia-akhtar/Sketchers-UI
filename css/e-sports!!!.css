@@ -222,8 +222,8 @@ a:hover {
 }
 
 .block-list {
-  width: 100%;
   line-height: 1;
+
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -232,7 +232,6 @@ a:hover {
 }
 
 .block-list a {
-  width: 100%;
   padding-top: 1rem;
   padding-bottom: 1rem;
   color: #1779ba;
