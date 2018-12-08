@@ -73,32 +73,46 @@
         <div class="basic-card">
           <div class="basic-card-image">
             <div id="owrandom" >
-          <template id="owrandomtemplate">
-        
-              <h4><b>Overwatch Esports</b></h4> 
-              <div class="iframe-holder"><iframe src={{gif}} width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div>
-           
-          </template>
-        </div>
+              <template id="owrandomtemplate">
+
+                <h4><b>Overwatch Esports</b></h4> 
+                <div class="iframe-holder"><iframe src={{gif}} width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div>
+
+              </template>
+            </div>
           </div>
           <div class="basic-card-content content callout secondary">
-          
+
             <p>Overwatch is a team-based multiplayer first-person shooter video game developed and published by Blizzard Entertainment, which released on May 24, 2016 for PlayStation 4, Xbox One, and Windows.</p>
           </div>
           <form id="overwatchsearch">
-              <input type="search" name="search" placeholder="Search for more overwatch.." class="animated-search-form">
+            <input type="search" name="search" placeholder="Search for more overwatch.." class="animated-search-form">
 
-              
-<div id="owheros">
-  <select name="heros">
-          <template id="owhtemplate">
-    <option value={{id}}>{{name}}</option>
-  </template>
-  </select>
-  </div>
 
-              <input type="button"  class="button" onclick="return owsearch()" value="Get Results">
-            </form>
+            <select name="heros" id="owheros">
+              <template id="owhtemplate">
+                <option value={{value}}>{{name}}</option>
+              </template>
+            </select>
+
+            <input type="button"  class="button" onclick="return owsearch()" value="Get Results">
+          </form>
+        </div>
+        <div class="row column">
+          <hr>
+        </div>
+
+<template id="herotemplate">
+            <h3>You searched for {{name}}</h3>
+            <p>age: {{age}}</p>
+            <p>From: {{location}}</p>
+            <p>Health: {{health}}</p>
+            <h4>Description</h4>
+            <p>{{description}}</p>
+            
+          </template>
+        <div class="row column" id="heroinfo">
+    
         </div>
         <div id="display" class="masonry-css">
           <template id="owtemplate">
