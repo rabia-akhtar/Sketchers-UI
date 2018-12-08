@@ -3,46 +3,75 @@ $(document).foundation()
 
 var owtemplate;
 var offset = 0;
+cache = [];
 function readyFn() {
     var template = $('#mytemplate').html();
     owtemplate = $('#owtemplate').html();
     Mustache.parse(template);
     //javascript, jQuery for random e-sports gifs
-    var xhr = $.get("http://api.giphy.com/v1/gifs/search?q=esports&api_key=AbeAQpZhmg7KZH3O1uZILCRVcsSXJqsu&limit=10");
+    //var xhr = $.get("http://api.giphy.com/v1/gifs/search?q=esports&api_key=AbeAQpZhmg7KZH3O1uZILCRVcsSXJqsu&limit=50");
     var div = $('#results');
+    var data = JSON.parse(localStorage.getItem('esportsgifs'));
+    if (!data){
+        $.ajax({
+          dataType: "json",
+          cache: true,
+          url: 'http://api.giphy.com/v1/gifs/search',
+          data: {q: 'esports',
+          api_key: 'AbeAQpZhmg7KZH3O1uZILCRVcsSXJqsu',
+          limit: 10},
+          success: function(results){
+            console.log("success got data", results);
+            localStorage.setItem('esportsgifs', JSON.stringify(results));
+            results.data.forEach(function (result) {
+                var view = {
+                    title: result.title,
+                    gif: result.embed_url
+                };
+                var rendered = Mustache.render(template, view);
+                div.append(rendered);
+            })
+        }
+    });
+    } else {
+        data.data.forEach(function (result) {
+                var view = {
+                    title: result.title,
+                    gif: result.embed_url
+                };
+                var rendered = Mustache.render(template, view);
+                div.append(rendered);
+            })
+    }
+
+
+    var xhr = $.get("http://api.giphy.com/v1/gifs/search?q=esports&api_key=AbeAQpZhmg7KZH3O1uZILCRVcsSXJqsu&offset=11");
     xhr.done(function(results) { 
         console.log("success got data", results);
         results.data.forEach(function (result) {
-            var view = {
+            cache.push({
                 title: result.title,
                 gif: result.embed_url
-              };
-              var rendered = Mustache.render(template, view);
-              div.append(rendered);
+            });
         })
     });
 }
+
 function loadMore() {
+    var div = $('#results');
     var template = $('#mytemplate').html();
     Mustache.parse(template);
-    //javascript, jQuery for random e-sports gifs
-    var xhr = $.get("http://api.giphy.com/v1/gifs/search?q=esports&api_key=AbeAQpZhmg7KZH3O1uZILCRVcsSXJqsu&limit=10&offset=" + offset);
-    var div = $('#results');
-    xhr.done(function(results) { 
-        console.log("success got data", results);
-        results.data.forEach(function (result) {
-            var view = {
-                title: result.title,
-                gif: result.embed_url
-              };
-              var rendered = Mustache.render(template, view);
-              div.append(rendered);
-        })
-    });
-    offset += 10
-    if(offset >= 30){
-    document.getElementById("load").style.display = "none";
+    if (offset > cache.length){
+        document.getElementById("load").style.display = "none";
     }
+    else {
+    for (i = offset; i < offset + 10; i++){
+        var view = cache[i]
+                var rendered = Mustache.render(template, view);
+                div.append(rendered);
+    }
+    }
+    offset += 10
 }
 function owsearch(){
     //javascript, jQuery for user directed overwatch gifs
@@ -58,9 +87,9 @@ function owsearch(){
             var view = {
                 title: result.title,
                 gif: result.embed_url
-              };
-              var rendered = Mustache.render(owtemplate, view);
-              display.append(rendered);
+            };
+            var rendered = Mustache.render(owtemplate, view);
+            display.append(rendered);
         })
     });
 }
