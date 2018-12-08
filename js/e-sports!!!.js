@@ -120,10 +120,11 @@ function owsearch(){
     var hero=$('#heroinfo').empty();
     var herotemplate = $('#herotemplate').html();
     Mustache.parse(herotemplate);
-    var overwatchSearch = "http://api.giphy.com/v1/gifs/search?api_key=AbeAQpZhmg7KZH3O1uZILCRVcsSXJqsu&limit=5&q=";
+    
     Mustache.parse(owtemplate);
     if(heroid == 0){
-        overwatchSearch += "overwatch" + search.toLowerCase;
+        var overwatchSearch = "http://api.giphy.com/v1/gifs/search?api_key=AbeAQpZhmg7KZH3O1uZILCRVcsSXJqsu&limit=20&q=overwatch";
+        overwatchSearch +=  search.toLowerCase;
         var overwatch = $.get(overwatchSearch);
         overwatch.done(function(results) { 
             console.log("success got data", results);
@@ -149,10 +150,11 @@ function owsearch(){
             };
             var rendered = Mustache.render(herotemplate, view);
             hero.append(rendered);
-            if (search !=" "){
-                overwatchSearch+= " "+ search
+            var overwatchSearch = "http://api.giphy.com/v1/gifs/search?api_key=AbeAQpZhmg7KZH3O1uZILCRVcsSXJqsu&limit=20&q=overwatch ";
+            if (search ==" "){
+                var overwatchSearch = "http://api.giphy.com/v1/gifs/search?api_key=AbeAQpZhmg7KZH3O1uZILCRVcsSXJqsu&limit=20&q=";
             }
-            overwatchSearch += " " + name.toLowerCase();
+            overwatchSearch +=  name.toLowerCase();
             var overwatch = $.get(overwatchSearch);
             overwatch.done(function(results) { 
                 console.log("success got data", results);
