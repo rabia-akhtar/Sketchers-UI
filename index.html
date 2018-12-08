@@ -30,6 +30,7 @@
     <ul class="tabs" data-responsive-accordion-tabs="tabs small-accordion medium-tabs large-tabs" id="collapsing-tabs" data-allow-all-closed="true" data-multi-expand="true">
       <li class="tabs-title is-active"><a href="#panel1c" aria-selected="true">E-sports</a></li>
       <li class="tabs-title"><a href="#panel2c">Overwatch</a></li>
+      <li class="tabs-title"><a href="#panel3c">Overwatch Heros</a></li>
       <div class="slide"></div>
     </ul>
 
@@ -87,32 +88,11 @@
           </div>
           <form id="overwatchsearch">
             <input type="search" name="search" placeholder="Search for more overwatch.." class="animated-search-form">
-
-
-            <select name="heros" id="owheros">
-              <template id="owhtemplate">
-                <option value={{value}}>{{name}}</option>
-              </template>
-            </select>
-
             <input type="button"  class="button" onclick="return owsearch()" value="Get Results">
           </form>
         </div>
         <div class="row column">
           <hr>
-        </div>
-
-<template id="herotemplate">
-            <h3>You searched for {{name}}</h3>
-            <p>age: {{age}}</p>
-            <p>From: {{location}}</p>
-            <p>Health: {{health}}</p>
-            <h4>Description</h4>
-            <p>{{description}}</p>
-            
-          </template>
-        <div class="row column" id="heroinfo">
-    
         </div>
         <div id="display" class="masonry-css">
           <template id="owtemplate">
@@ -123,10 +103,13 @@
           </template>
         </div>
       </div>
+      <div class="tabs-panel" id="panel3c">
+        
+
+
+      </div>
     </div>
   </div>
-
-
 </div>
 <div class="row column">
   <hr>

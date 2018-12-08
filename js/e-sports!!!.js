@@ -69,7 +69,45 @@ function readyFn() {
         var rendered = Mustache.render(rowtemplate, view);
         owdiv.append(rendered);
     });
+}
 
+function loadMore() {
+    var div = $('#results');
+    var template = $('#mytemplate').html();
+    Mustache.parse(template);
+    if (offset > cache.length){
+        document.getElementById("load").style.display = "none";
+    }
+    else {
+        for (i = offset; i < offset + 10; i++){
+            var view = cache[i]
+            var rendered = Mustache.render(template, view);
+            div.append(rendered);
+        }
+    }
+    offset += 10
+}
+
+function herocarousel(){
+    var hero=$('#heroinfo').empty();
+    var herotemplate = $('#herotemplate').html();
+    Mustache.parse(herotemplate);
+    var owh = $.get("https://overwatch-api.net/api/v1/hero/"+heroid);
+    owh.done(function(result) { 
+        console.log("success got data", result);
+        var view = {
+            name: result.real_name,
+            description: result.description,
+            age: result.age,
+            location: result.base_of_operations,
+            health: result.health
+        };
+        var rendered = Mustache.render(herotemplate, view);
+        hero.append(rendered);
+    });
+}
+
+function heroloadmore(id){
     var owhdiv = $('#owheros');
     owhtemplate = $('#owhtemplate').html();
     Mustache.parse(owhtemplate);
@@ -91,87 +129,29 @@ function readyFn() {
     };
     var rendered = Mustache.render(owhtemplate, view);
     owhdiv.append(rendered);
-
 }
 
-function loadMore() {
-    var div = $('#results');
-    var template = $('#mytemplate').html();
-    Mustache.parse(template);
-    if (offset > cache.length){
-        document.getElementById("load").style.display = "none";
-    }
-    else {
-        for (i = offset; i < offset + 10; i++){
-            var view = cache[i]
-            var rendered = Mustache.render(template, view);
-            div.append(rendered);
-        }
-    }
-    offset += 10
-}
 function owsearch(){
     //javascript, jQuery for user directed overwatch gifs
     var search = document.forms["overwatchsearch"]["search"].value;
-    var heroparts = document.forms["overwatchsearch"]["heros"].value.split(',');
-    heroid = heroparts[0]
-    name= heroparts[1]
-    var display=$('#display').empty();
-    var hero=$('#heroinfo').empty();
-    var herotemplate = $('#herotemplate').html();
-    Mustache.parse(herotemplate);
-    
+    var display=$('#display').empty(); 
     Mustache.parse(owtemplate);
-    if(heroid == 0){
-        var overwatchSearch = "http://api.giphy.com/v1/gifs/search?api_key=AbeAQpZhmg7KZH3O1uZILCRVcsSXJqsu&limit=20&q=overwatch";
-        overwatchSearch +=  search.toLowerCase;
-        var overwatch = $.get(overwatchSearch);
-        overwatch.done(function(results) { 
-            console.log("success got data", results);
-            results.data.forEach(function (result) {
-                var view = {
-                    title: result.title,
-                    gif: result.embed_url
-                };
-                var rendered = Mustache.render(owtemplate, view);
-                display.append(rendered);
-            })
-        });
-    } else{
-        var owh = $.get("https://overwatch-api.net/api/v1/hero/"+heroid);
-        owh.done(function(result) { 
-            console.log("success got data", result);
+    var overwatchSearch = "http://api.giphy.com/v1/gifs/search?api_key=AbeAQpZhmg7KZH3O1uZILCRVcsSXJqsu&limit=20&q=overwatch";
+    overwatchSearch +=  search.toLowerCase;
+    var overwatch = $.get(overwatchSearch);
+    overwatch.done(function(results) { 
+        console.log("success got data", results);
+        results.data.forEach(function (result) {
             var view = {
-                name: result.real_name,
-                description: result.description,
-                age: result.age,
-                location: result.base_of_operations,
-                health: result.health
+                title: result.title,
+                gif: result.embed_url
             };
-            var rendered = Mustache.render(herotemplate, view);
-            hero.append(rendered);
-            var overwatchSearch = "http://api.giphy.com/v1/gifs/search?api_key=AbeAQpZhmg7KZH3O1uZILCRVcsSXJqsu&limit=20&q=overwatch ";
-            if (search ==" "){
-                var overwatchSearch = "http://api.giphy.com/v1/gifs/search?api_key=AbeAQpZhmg7KZH3O1uZILCRVcsSXJqsu&limit=20&q=";
-            }
-            overwatchSearch +=  name.toLowerCase();
-            var overwatch = $.get(overwatchSearch);
-            overwatch.done(function(results) { 
-                console.log("success got data", results);
-                results.data.forEach(function (result) {
-                    var view = {
-                        title: result.title,
-                        gif: result.embed_url
-                    };
-                    var rendered = Mustache.render(owtemplate, view);
-                    display.append(rendered);
-                })
-            });
-
-        });
-
-    }
+            var rendered = Mustache.render(owtemplate, view);
+            display.append(rendered);
+        })
+    });
 }
+
 
 $('#top').click(function () {
     $('body,html').animate({
@@ -187,5 +167,4 @@ $(window).scroll(function () {
         $('.totop a').fadeOut();
     }
 });
-
 $( document ).ready( readyFn );
