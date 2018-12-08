@@ -59,7 +59,7 @@ function readyFn() {
     });
 
     var owdiv = $('#owrandom');
-    var ow = $.get("http://api.giphy.com/v1/gifs/random?tag=overwatch&api_key=AbeAQpZhmg7KZH3O1uZILCRVcsSXJqsu");
+    var ow = $.get("http://api.giphy.com/v1/gifs/random?tag=hearthstone&api_key=AbeAQpZhmg7KZH3O1uZILCRVcsSXJqsu");
     ow.done(function(result) { 
         console.log("success got data", result);
         var view = {
@@ -92,7 +92,7 @@ function herocarousel(){
     var hero=$('#heroinfo').empty();
     var herotemplate = $('#herotemplate').html();
     Mustache.parse(herotemplate);
-    var owh = $.get("https://overwatch-api.net/api/v1/hero/"+heroid);
+    var owh = $.get("https://hearthstone-api.net/api/v1/hero/"+heroid);
     owh.done(function(result) { 
         console.log("success got data", result);
         var view = {
@@ -111,7 +111,7 @@ function heroloadmore(id){
     var owhdiv = $('#owheros');
     owhtemplate = $('#owhtemplate').html();
     Mustache.parse(owhtemplate);
-    var owh = $.get("https://overwatch-api.net/api/v1/hero");
+    var owh = $.get("https://hearthstone-api.net/api/v1/hero");
     owh.done(function(results) { 
         console.log("success got data", results);
         results.data.forEach(function (result) {
@@ -132,14 +132,14 @@ function heroloadmore(id){
 }
 
 function owsearch(){
-    //javascript, jQuery for user directed overwatch gifs
+    //javascript, jQuery for user directed hearthstone gifs
     var search = document.forms["overwatchsearch"]["search"].value;
     var display=$('#display').empty(); 
     Mustache.parse(owtemplate);
-    var overwatchSearch = "http://api.giphy.com/v1/gifs/search?api_key=AbeAQpZhmg7KZH3O1uZILCRVcsSXJqsu&limit=20&q=overwatch";
+    var overwatchSearch = "http://api.giphy.com/v1/gifs/search?api_key=AbeAQpZhmg7KZH3O1uZILCRVcsSXJqsu&limit=20&q=hearthstone";
     overwatchSearch +=  search.toLowerCase;
-    var overwatch = $.get(overwatchSearch);
-    overwatch.done(function(results) { 
+    var hearthstone = $.get(overwatchSearch);
+    hearthstone.done(function(results) { 
         console.log("success got data", results);
         results.data.forEach(function (result) {
             var view = {
