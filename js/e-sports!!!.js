@@ -95,7 +95,7 @@ function pandascore(){
     var hero=$('#liveseries');
     var herotemplate = $('#seriestemplate').html();
     Mustache.parse(herotemplate);
-    var ps = $.get("https://cors.io/?https://api.pandascore.co/series/upcoming.json?token=yT37jtMrmE4FAnoSqGpOB760RamLL8_N5SkznnNEk5lfZwFZiGY");
+    var ps = $.get("https://cors.io/?https://api.pandascore.co/series/running.json?token=yT37jtMrmE4FAnoSqGpOB760RamLL8_N5SkznnNEk5lfZwFZiGY");
     ps.done(function(results) { 
         data = JSON.parse(results);
         console.log("success got data", data);
@@ -107,12 +107,15 @@ function pandascore(){
             var view = {
                 name: result.videogame.name,
                 img: result.league.image_url,
+                url: result.league.url,
                 full_name: result.full_name,
                 begin: result.begin_at,
                 end: result.end_at,
                 tournament: t      
             };
-            console.log("success got data", view);
+            view.hasURL = (result.league.url != null);
+
+            
             var rendered = Mustache.render(herotemplate, view);
             hero.append(rendered);
         })

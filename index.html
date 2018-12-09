@@ -83,7 +83,7 @@
         </li>
 
         <li class="tabs-title">
-          <a href="#panel4c">Upcoming Series</a>
+          <a href="#panel4c">Running Series</a>
         </li>
 
         <div class="slide"></div>
@@ -269,94 +269,111 @@
                 ></iframe>
               </div>
             </template>
-          
 
-          <div id="overwatchdropdown">
-            <template id="dropdowntemplate">
-              <div class="row add-people-section">
-                <div class="small-12 medium-6 columns about-people">
-                  <div class="about-people-avatar"></div>
+            <div id="overwatchdropdown">
+              <template id="dropdowntemplate">
+                <div class="row add-people-section">
+                  <div class="small-12 medium-6 columns about-people">
+                    <div class="about-people-avatar"></div>
 
-                  <div class="about-people-author">
-                    <p class="author-name">{{name}}, {{age}}</p>
+                    <div class="about-people-author">
+                      <p class="author-name">{{name}}, {{age}}</p>
 
-                    <p class="author-location">
-                      <i
-                        class="fa fa-map-marker"
-                        aria-hidden="true"
-                      ></i>
+                      <p class="author-location">
+                        <i
+                          class="fa fa-map-marker"
+                          aria-hidden="true"
+                        ></i>
 
-                      {{location}}
-                    </p>
+                        {{location}}
+                      </p>
 
-                    <p class="author-mutual">{{description}}</p>
+                      <p class="author-mutual">{{description}}</p>
+                    </div>
+                  </div>
+
+                  <div class="small-12 medium-6 columns add-friend">
+                    <div class="add-friend-action">
+                      <a
+                        class="button radius"
+                        data-open="herogifcontainer"
+                        onclick="return herogifgen('{{name}}')"
+                      >
+                        <i
+                          class="fa fa-random"
+                          aria-hidden="true"
+                        ></i>
+
+                        Random Gif
+                      </a>
+                    </div>
                   </div>
                 </div>
-
-                <div class="small-12 medium-6 columns add-friend">
-                  <div class="add-friend-action">
-                    <a
-                      class="button radius"
-                      data-open="herogifcontainer"
-                      onclick="return herogifgen('{{name}}')"
-                    >
-                      <i
-                        class="fa fa-random"
-                        aria-hidden="true"
-                      ></i>
-
-                      Random Gif
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </template>
+              </template>
+            </div>
           </div>
-        </div>
         </div>
 
         <div
           class="tabs-panel"
           id="panel4c"
         >
-        <section class="block-list">
-          <header>Upcoming Esports Series</header>
-        </section>
-        <div
-              class="masonry-css"
-              id="liveseries"
-            >
-              <template id="seriestemplate">
-                <div
-                  class="masonry-css-item"
-                  id="masonry-css-item"
-                >
+          <section class="block-list">
+            <header>Currently Esports Series</header>
+          </section>
 
+          <div
+            class="masonry-css"
+            id="liveseries"
+          >
+            <template id="seriestemplate">
+              <div
+                class="masonry-css-item"
+                id="masonry-css-item"
+              >
                 <div class="basic-card">
                   <div class="basic-card-image">
-                    <img src={{img}}>
+                    <img src="{{img}}">
                   </div>
+
                   <div class="basic-card-content content callout secondary">
-                    <h2>{{name}} {{full_name}}</h2>
-                    <h4>Begins: {{begin}}</h4>
-                    <h4>Ends: {{end}}</h4>
-                     </div>
+                    <h3>
+                      {{name}} {{full_name}}
+                    </h3>
+                      <p>Began: {{begin}}</p>
+                   
+                  </div>
+
                   <div class="links callout primary">
                     <ul class="menu">
                       {{#tournament}}
-  <li>Tournament: {{.}}</li>
-  {{/tournament}}
+
+                      <li>Tournament: {{.}}</li>
+
+                      {{/tournament}}
                     </ul>
+
+                    {{#hasURL}}
+
+                    <a
+                      class="button radius"
+                      id="leaguebutton"
+                      href="{{url}}"
+                    >
+                      <i
+                        class="fa fa-external-link"
+                        aria-hidden="true"
+                      ></i>
+
+                      Go to League
+                    </a>
+
+                    {{/hasURL}}
                   </div>
                 </div>
-                
-                
-
-              
-                  
-                </div>
-              </template>
-            </div>
+              </div>
+            </template>
+          </div>
         </div>
       </div>
     </div>
