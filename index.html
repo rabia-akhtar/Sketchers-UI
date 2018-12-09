@@ -319,7 +319,44 @@
           class="tabs-panel"
           id="panel4c"
         >
-          <p>HELLO</p>
+        <section class="block-list">
+          <header>Upcoming Esports Series</header>
+        </section>
+        <div
+              class="masonry-css"
+              id="liveseries"
+            >
+              <template id="seriestemplate">
+                <div
+                  class="masonry-css-item"
+                  id="masonry-css-item"
+                >
+
+                <div class="basic-card">
+                  <div class="basic-card-image">
+                    <img src={{img}}>
+                  </div>
+                  <div class="basic-card-content content callout secondary">
+                    <h2>{{name}} {{full_name}}</h2>
+                    <h4>Begins: {{begin}}</h4>
+                    <h4>Ends: {{end}}</h4>
+                     </div>
+                  <div class="links callout primary">
+                    <ul class="menu">
+                      {{#tournament}}
+  <li>Tournament: {{.}}</li>
+  {{/tournament}}
+                    </ul>
+                  </div>
+                </div>
+                
+                
+
+              
+                  
+                </div>
+              </template>
+            </div>
         </div>
       </div>
     </div>

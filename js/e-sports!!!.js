@@ -92,9 +92,30 @@ function loadMore() {
 }
 
 function pandascore(){
+    var hero=$('#liveseries');
+    var herotemplate = $('#seriestemplate').html();
+    Mustache.parse(herotemplate);
     var ps = $.get("https://cors.io/?https://api.pandascore.co/series/upcoming.json?token=yT37jtMrmE4FAnoSqGpOB760RamLL8_N5SkznnNEk5lfZwFZiGY");
-    ps.done(function(result) { 
-        console.log("success got data", result);
+    ps.done(function(results) { 
+        data = JSON.parse(results);
+        console.log("success got data", data);
+        data.forEach(function (result) {
+            t =[]
+        for(i = 0; i < result.tournaments.length; i++){
+            t.push(result.tournaments[i].name);
+        }
+            var view = {
+                name: result.videogame.name,
+                img: result.league.image_url,
+                full_name: result.full_name,
+                begin: result.begin_at,
+                end: result.end_at,
+                tournament: t      
+            };
+            console.log("success got data", view);
+            var rendered = Mustache.render(herotemplate, view);
+            hero.append(rendered);
+        })
     });
 }
 function herogifgen(name){
