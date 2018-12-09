@@ -71,6 +71,7 @@ function readyFn() {
     });
 
    herodropdown();
+   pandascore();
 }
 
 function loadMore() {
@@ -90,6 +91,12 @@ function loadMore() {
     offset += 10
 }
 
+function pandascore(){
+    var ps = $.get("https://cors.io/?https://api.pandascore.co/series/upcoming.json?token=yT37jtMrmE4FAnoSqGpOB760RamLL8_N5SkznnNEk5lfZwFZiGY");
+    ps.done(function(result) { 
+        console.log("success got data", result);
+    });
+}
 function herogifgen(name){
     var hero=$('#herogif').empty();
     var herotemplate = $('#herogiftemplate').html();

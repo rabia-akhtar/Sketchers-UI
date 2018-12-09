@@ -1,184 +1,380 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html
+  class="no-js"
+  lang="en"
+>
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="shortcut icon" type="image/png" href="https://www.logolynx.com/images/logolynx/af/af6b48cc4bbc9e0b904f8431e7dbdd3d.png">
-  <title>Blizzard E-sports</title>
-  <link rel="stylesheet" href="css/e-sports!!!.css">
-  <link rel="stylesheet" href="css/foundation.min.css">
-  <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+  <meta charset="utf-8"></meta>
 
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  ></meta>
+
+  <link
+    rel="shortcut icon"
+    type="image/png"
+    href="https://www.logolynx.com/images/logolynx/af/af6b48cc4bbc9e0b904f8431e7dbdd3d.png"
+  ></link>
+
+  <title>Blizzard E-sports</title>
+
+  <link
+    rel="stylesheet"
+    href="css/e-sports!!!.css"
+  ></link>
+
+  <link
+    rel="stylesheet"
+    href="css/foundation.min.css"
+  ></link>
+
+  <link
+    rel="stylesheet"
+    href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css"
+  ></link>
+
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+  ></link>
 </head>
+
 <body>
   <br>
 
   <div class="row">
     <div class="header-container">
-      <a href="index.html"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Blizzard_Entertainment_Logo.svg/1200px-Blizzard_Entertainment_Logo.svg.png" alt="Blizzard Ent">
+      <a href="index.html">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Blizzard_Entertainment_Logo.svg/1200px-Blizzard_Entertainment_Logo.svg.png"
+          alt="Blizzard Ent"
+        >
       </a>
-      </div>
+    </div>
   </div>
 
-</div>
-<div class="row column">
-  <hr>
-</div>
+  <div class="row column">
+    <hr>
+  </div>
 
+  <div class="row column">
+    <div class="md-tabs">
+      <ul
+        class="tabs"
+        data-responsive-accordion-tabs="tabs small-accordion medium-tabs large-tabs"
+        id="collapsing-tabs"
+        data-allow-all-closed="true"
+        data-multi-expand="true"
+      >
+        <li class="tabs-title is-active">
+          <a
+            href="#panel1c"
+            aria-selected="true"
+          >E-sports</a>
+        </li>
 
-<div class="row column">
-  <div class="md-tabs">  
-    <ul class="tabs" data-responsive-accordion-tabs="tabs small-accordion medium-tabs large-tabs" id="collapsing-tabs" data-allow-all-closed="true" data-multi-expand="true">
-      <li class="tabs-title is-active"><a href="#panel1c" aria-selected="true">E-sports</a></li>
-      <li class="tabs-title"><a href="#panel2c">Hearthstone</a></li>
-      <li class="tabs-title"><a href="#panel3c">Overwatch Heros</a></li>
-      <div class="slide"></div>
-    </ul>
+        <li class="tabs-title">
+          <a href="#panel2c">Hearthstone</a>
+        </li>
 
-    <div class="tabs-content" data-tabs-content="collapsing-tabs">
-      <div class="tabs-panel is-active" id="panel1c">
-        <div class="row column">
-          <section class="block-list">
-            <header>What is E-sports?</header>
-            <ul>
-              <li>
-                <p class="list-header">Esports is a form of competition using video games. Most commonly, esports takes the form of organized, multiplayer video game competitions, particularly between professional players and teams.</p>
-              </li>
-              <header>Links</header>
-              <li>
-                <a href="https://en.wikipedia.org/wiki/Esports"> Wikipedia</a>
-              </li>
-              <li>
-                <a href="http://www.espn.com/esports/">ESPN </a>
-              </li>
-              <li>
-                <a href="https://www.twitch.tv/">Twitch</a>
-              </li>
-              <header>Esports Gifs</header>
-            </ul>
-          </section>
+        <li class="tabs-title">
+          <a href="#panel3c">Overwatch Heros</a>
+        </li>
 
-          <div class="masonry-css" id="results">
-            <template id="mytemplate">                   
-              <div class="masonry-css-item" id ="masonry-css-item">
-                <h4><b>{{title}}</b></h4> 
-                <div class="iframe-holder"><iframe src={{gif}} width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div>
-              </div>                       
-            </template>
-          </div>
+        <li class="tabs-title">
+          <a href="#panel4c">Upcoming Series</a>
+        </li>
+
+        <div class="slide"></div>
+      </ul>
+
+      <div
+        class="tabs-content"
+        data-tabs-content="collapsing-tabs"
+      >
+        <div
+          class="tabs-panel is-active"
+          id="panel1c"
+        >
           <div class="row column">
-            <button class="button hollow expanded" id="load" onclick="return loadMore()">Load More</button>
-          </div>
-        </div>
-      </div>
-      <div class="tabs-panel" id="panel2c">
-        <div class="basic-card">
-          <div class="basic-card-image">
-            <div id="owrandom" >
-              <template id="owrandomtemplate">
+            <section class="block-list">
+              <header>What is E-sports?</header>
 
-                <h4><b>Hearthstone Esports</b></h4> 
-                <div class="iframe-holder"><iframe src={{gif}} width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div>
+              <ul>
+                <li>
+                  <p class="list-header">
+                    Esports is a form of competition using video games. Most commonly, esports takes the form of organized, multiplayer video game competitions, particularly between professional players and teams.
+                  </p>
+                </li>
 
+                <header>Links</header>
+
+                <li>
+                  <a href="https://en.wikipedia.org/wiki/Esports">Wikipedia</a>
+                </li>
+
+                <li>
+                  <a href="http://www.espn.com/esports/">ESPN</a>
+                </li>
+
+                <li>
+                  <a href="https://www.twitch.tv/">Twitch</a>
+                </li>
+
+                <header>Esports Gifs</header>
+              </ul>
+            </section>
+
+            <div
+              class="masonry-css"
+              id="results"
+            >
+              <template id="mytemplate">
+                <div
+                  class="masonry-css-item"
+                  id="masonry-css-item"
+                >
+                  <h4>
+                    <b>{{title}}</b>
+                  </h4>
+
+                  <div class="iframe-holder">
+                    <iframe
+                      src="{{gif}}"
+                      width="100%"
+                      height="100%"
+                      style="position:absolute"
+                      frameBorder="0"
+                      class="giphy-embed"
+                      allowFullScreen="allowFullScreen"
+                    ></iframe>
+                  </div>
+                </div>
               </template>
             </div>
-          </div>
-          <div class="basic-card-content content callout secondary">
-            <p>Hearthstone, originally Hearthstone: Heroes of Warcraft, is a free-to-play online collectible card video game developed and published by Blizzard Entertainment.</p>          </div>
-          <form id="overwatchsearch">
-            <input type="search" name="search" placeholder="Search for more hearthstone.." class="animated-search-form">
-            <input type="button"  class="button" onclick="return owsearch()" value="Get Results">
-          </form>
-        </div>
-        <div class="row column">
-          <hr>
-        </div>
-        <div id="display" class="masonry-css">
-          <template id="owtemplate">
-            <div class="masonry-css-item" id ="masonry-css-item">
-              <h4><b>{{title}}</b></h4> 
-              <div class="iframe-holder"><iframe src={{gif}} width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div>
-            </div>      
-          </template>
-        </div>
-      </div>
-      <div class="tabs-panel" id="panel3c">
-          <div class="people-you-might-know">
-              <div class="add-people-header">
-                <h6 class="header-title">
-                  Overwatch Heros
-                </h6>
-              </div>
-              <template id="herogiftemplate">
-                 
-                          <div class="iframe-holder"><iframe src={{gif}} width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div>
-              </div>
-                  </template>
-              <div id="overwatchdropdown">
-                <template id="dropdowntemplate">
-                    <div class="row add-people-section">
-                        <div class="small-12 medium-6 columns about-people">
-                          <div class="about-people-avatar">
-                            
-                          </div>
-                          <div class="about-people-author">
-                            <p class="author-name">
-                              {{name}}, {{age}}
-                            </p>
-                            <p class="author-location">
-                              <i class="fa fa-map-marker" aria-hidden="true"></i>
-                              {{location}}
-                            </p>
-                            <p class="author-mutual">
-                              {{description}}
-                            </p>
-                          </div>    
-                        </div>
-                        <div class="small-12 medium-6 columns add-friend">
-                          <div class="add-friend-action">
-                            <a class="button radius" data-open="herogifcontainer" onclick="return herogifgen('{{name}}')"><i class="fa fa-random" aria-hidden="true"></i>
-                              Random Gif</a>
-                          </div>
-                        </div>
-                      
-                        
-                      </div>
-                </template>     
-              </div>       
+
+            <div class="row column">
+              <button
+                class="button hollow expanded"
+                id="load"
+                onclick="return loadMore()"
+              >Load More</button>
             </div>
+          </div>
+        </div>
+
+        <div
+          class="tabs-panel"
+          id="panel2c"
+        >
+          <div class="basic-card">
+            <div class="basic-card-image">
+              <div id="owrandom">
+                <template id="owrandomtemplate">
+                  <h4>
+                    <b>Hearthstone Esports</b>
+                  </h4>
+
+                  <div class="iframe-holder">
+                    <iframe
+                      src="{{gif}}"
+                      width="100%"
+                      height="100%"
+                      style="position:absolute"
+                      frameBorder="0"
+                      class="giphy-embed"
+                      allowFullScreen="allowFullScreen"
+                    ></iframe>
+                  </div>
+                </template>
+              </div>
+            </div>
+
+            <div class="basic-card-content content callout secondary">
+              <p>
+                Hearthstone, originally Hearthstone: Heroes of Warcraft, is a free-to-play online collectible card video game developed and published by Blizzard Entertainment.
+              </p>
+            </div>
+
+            <form id="overwatchsearch">
+              <input
+                type="search"
+                name="search"
+                placeholder="Search for more hearthstone.."
+                class="animated-search-form"
+              ></input>
+
+              <input
+                type="button"
+                class="button"
+                onclick="return owsearch()"
+                value="Get Results"
+              ></input>
+            </form>
+          </div>
+
+          <div class="row column">
+            <hr>
+          </div>
+
+          <div
+            id="display"
+            class="masonry-css"
+          >
+            <template id="owtemplate">
+              <div
+                class="masonry-css-item"
+                id="masonry-css-item"
+              >
+                <h4>
+                  <b>{{title}}</b>
+                </h4>
+
+                <div class="iframe-holder">
+                  <iframe
+                    src="{{gif}}"
+                    width="100%"
+                    height="100%"
+                    style="position:absolute"
+                    frameBorder="0"
+                    class="giphy-embed"
+                    allowFullScreen="allowFullScreen"
+                  ></iframe>
+                </div>
+              </div>
+            </template>
+          </div>
+        </div>
+
+        <div
+          class="tabs-panel"
+          id="panel3c"
+        >
+          <div class="people-you-might-know">
+            <div class="add-people-header">
+              <h6 class="header-title">Overwatch Heros</h6>
+            </div>
+
+            <template id="herogiftemplate">
+              <div class="iframe-holder">
+                <iframe
+                  src="{{gif}}"
+                  width="100%"
+                  height="100%"
+                  style="position:absolute"
+                  frameBorder="0"
+                  class="giphy-embed"
+                  allowFullScreen="allowFullScreen"
+                ></iframe>
+              </div>
+            </template>
+          
+
+          <div id="overwatchdropdown">
+            <template id="dropdowntemplate">
+              <div class="row add-people-section">
+                <div class="small-12 medium-6 columns about-people">
+                  <div class="about-people-avatar"></div>
+
+                  <div class="about-people-author">
+                    <p class="author-name">{{name}}, {{age}}</p>
+
+                    <p class="author-location">
+                      <i
+                        class="fa fa-map-marker"
+                        aria-hidden="true"
+                      ></i>
+
+                      {{location}}
+                    </p>
+
+                    <p class="author-mutual">{{description}}</p>
+                  </div>
+                </div>
+
+                <div class="small-12 medium-6 columns add-friend">
+                  <div class="add-friend-action">
+                    <a
+                      class="button radius"
+                      data-open="herogifcontainer"
+                      onclick="return herogifgen('{{name}}')"
+                    >
+                      <i
+                        class="fa fa-random"
+                        aria-hidden="true"
+                      ></i>
+
+                      Random Gif
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </template>
+          </div>
+        </div>
+        </div>
+
+        <div
+          class="tabs-panel"
+          id="panel4c"
+        >
+          <p>HELLO</p>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<div id="herogifcontainer" class="full reveal" data-reveal="" data-reset-on-close="true">
-    <div id="herogif" style="padding-top: 50px;
+
+  <div
+    id="herogifcontainer"
+    class="full reveal"
+    data-reveal=""
+    data-reset-on-close="true"
+  >
+    <div
+      id="herogif"
+      style="padding-top: 50px;
     padding-right: 30px;
     padding-bottom: 50px;
-    padding-left: 80px;"></div>
-    <button class="close-button" type="button" data-close="">×</button>
-    </div>
-<div class="row column">
-  <hr>
-</div>
-<footer>
-  <div class="row">
-    <div class="medium-3 columns">
-      <ul class="menu">
-        <li><a href="help.html">Help</a></li>
-      </ul>
-    </div>
+    padding-left: 80px;"
+    ></div>
+
+    <button
+      class="close-button"
+      type="button"
+      data-close=""
+    >×</button>
   </div>
-  <div class="totop">
-    <a href="#top" id="top">Back to top</a>
+
+  <div class="row column">
+    <hr>
   </div>
-</footer>
-<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-<script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
-<script src="js/vendor/jquery.js"></script>
-<script src="js/vendor/what-input.js"></script>
-<script src="js/vendor/foundation.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.min.js"></script>
-<script src="js/e-sports!!!.js"></script>
+
+  <footer>
+    <div class="row">
+      <div class="medium-3 columns">
+        <ul class="menu">
+          <li>
+            <a href="help.html">Help</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="totop">
+      <a
+        href="#top"
+        id="top"
+      >Back to top</a>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
+  <script src="js/vendor/jquery.js"></script>
+  <script src="js/vendor/what-input.js"></script>
+  <script src="js/vendor/foundation.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.min.js"></script>
+  <script src="js/e-sports!!!.js"></script>
 </body>
 </html>
