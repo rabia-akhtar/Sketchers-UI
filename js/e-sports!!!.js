@@ -69,6 +69,8 @@ function readyFn() {
         var rendered = Mustache.render(rowtemplate, view);
         owdiv.append(rendered);
     });
+
+   herodropdown();
 }
 
 function loadMore() {
@@ -88,47 +90,43 @@ function loadMore() {
     offset += 10
 }
 
-function herocarousel(){
-    var hero=$('#heroinfo').empty();
-    var herotemplate = $('#herotemplate').html();
+function herogifgen(name){
+    var hero=$('#herogif').empty();
+    var herotemplate = $('#herogiftemplate').html();
     Mustache.parse(herotemplate);
-    var owh = $.get("https://hearthstone-api.net/api/v1/hero/"+heroid);
+    var owh = $.get("http://api.giphy.com/v1/gifs/random?api_key=AbeAQpZhmg7KZH3O1uZILCRVcsSXJqsu&tag=overwatch " + name);
     owh.done(function(result) { 
         console.log("success got data", result);
         var view = {
-            name: result.real_name,
-            description: result.description,
-            age: result.age,
-            location: result.base_of_operations,
-            health: result.health
+            title: result.data.title,
+            gif: result.data.embed_url
         };
+        console.log("success got data", view);
         var rendered = Mustache.render(herotemplate, view);
+        console.log("success got data", rendered);
         hero.append(rendered);
     });
 }
 
-function heroloadmore(id){
-    var owhdiv = $('#owheros');
-    owhtemplate = $('#owhtemplate').html();
+function herodropdown(){
+    var owhdiv = $('#overwatchdropdown');
+    owhtemplate = $('#dropdowntemplate').html();
     Mustache.parse(owhtemplate);
-    var owh = $.get("https://hearthstone-api.net/api/v1/hero");
+    var owh = $.get("https://overwatch-api.net/api/v1/hero");
     owh.done(function(results) { 
         console.log("success got data", results);
         results.data.forEach(function (result) {
             var view = {
                 name: result.name,
-                value: result.id +","+result.name
+                description: result.description,
+                age: result.age,
+                location: result.base_of_operations
+                
             };
             var rendered = Mustache.render(owhtemplate, view);
             owhdiv.append(rendered);
         })
     });
-    var view = {
-        name: "Select Hero",
-        value: "0"
-    };
-    var rendered = Mustache.render(owhtemplate, view);
-    owhdiv.append(rendered);
 }
 
 function owsearch(){
@@ -136,7 +134,7 @@ function owsearch(){
     var search = document.forms["overwatchsearch"]["search"].value;
     var display=$('#display').empty(); 
     Mustache.parse(owtemplate);
-    var overwatchSearch = "http://api.giphy.com/v1/gifs/search?api_key=AbeAQpZhmg7KZH3O1uZILCRVcsSXJqsu&limit=20&q=hearthstone";
+    var overwatchSearch = "http://api.giphy.com/v1/gifs/search?api_key=AbeAQpZhmg7KZH3O1uZILCRVcsSXJqsu&limit=20&q=hearthstone ";
     overwatchSearch +=  search.toLowerCase;
     var hearthstone = $.get(overwatchSearch);
     hearthstone.done(function(results) { 
@@ -167,4 +165,6 @@ $(window).scroll(function () {
         $('.totop a').fadeOut();
     }
 });
+
+
 $( document ).ready( readyFn );
