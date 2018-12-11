@@ -1,9 +1,14 @@
+// Enable foundation 
 $(document).foundation()
-//javascript, jQuery
 
+
+
+// Global variables.
 var owtemplate;
 var offset = 0;
 cache = [];
+
+
 function readyFn() {
     var template = $('#mytemplate').html();
     owtemplate = $('#owtemplate').html();
@@ -180,6 +185,15 @@ function owsearch(){
         })
     });
 }
+
+$('#search').on('keyup keypress', function(event) {
+  var key = event.keyCode || event.which;
+  if (key === 13) { 
+    event.preventDefault();
+    return false;
+  }
+});
+
 
 
 $('#top').click(function () {
